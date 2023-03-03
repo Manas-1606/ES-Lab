@@ -1,0 +1,171 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10000100        DCD              0x10000100
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008         
+    7 00000008                 ALIGN
+    8 00000008         
+    9 00000008                 AREA             MY_CODE, CODE, READONLY
+   10 00000000                 ENTRY
+   11 00000000                 EXPORT           Reset_Handler
+   12 00000000         Reset_Handler
+   13 00000000         
+   14 00000000 F04F 000A       MOV              R0, #10
+   15 00000004 4904            LDR              R1, =SRC    ;
+   16 00000006 4A05            LDR              R2, =SRC+40 ;
+   17 00000008         
+   18 00000008         
+   19 00000008         
+   20 00000008         BACK
+   21 00000008 F851 3B04       LDR              R3, [R1], #4 ;
+   22 0000000C F842 3B04       STR              R3, [R2], #4 ;
+   23 00000010 3801            SUBS             R0, #1
+   24 00000012 D1F9            BNE              BACK
+   25 00000014         
+   26 00000014         
+   27 00000014         
+   28 00000014         
+   29 00000014         
+   30 00000014         
+   31 00000014         
+   32 00000014 E7FE    STOP    B                STOP
+   33 00000016         
+   34 00000016         
+   35 00000016         
+   36 00000016 00 00 00000000 
+              00000028         AREA             MY_DATA, DATA, READWRITE
+   37 00000000 00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 SRC     DCD              0,0,0,0,0,0,0,0,0,0
+   38 00000028 00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 DST     DCD              0,0,0,0,0,0,0,0,0,0
+   39 00000050         
+   40 00000050         
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   41 00000050                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\q1_nv.
+d -o.\q1_nv.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\
+Inc\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=.\q1_nv.lst q1_nv.asm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file q1_nv.asm
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file q1_nv.asm
+   Uses
+      At line 2 in file q1_nv.asm
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+BACK 00000008
+
+Symbol: BACK
+   Definitions
+      At line 20 in file q1_nv.asm
+   Uses
+      At line 24 in file q1_nv.asm
+Comment: BACK used once
+MY_CODE 00000000
+
+Symbol: MY_CODE
+   Definitions
+      At line 9 in file q1_nv.asm
+   Uses
+      None
+Comment: MY_CODE unused
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 12 in file q1_nv.asm
+   Uses
+      At line 5 in file q1_nv.asm
+      At line 11 in file q1_nv.asm
+
+STOP 00000014
+
+Symbol: STOP
+   Definitions
+      At line 32 in file q1_nv.asm
+   Uses
+      At line 32 in file q1_nv.asm
+Comment: STOP used once
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DST 00000028
+
+Symbol: DST
+   Definitions
+      At line 38 in file q1_nv.asm
+   Uses
+      None
+Comment: DST unused
+MY_DATA 00000000
+
+Symbol: MY_DATA
+   Definitions
+      At line 36 in file q1_nv.asm
+   Uses
+      None
+Comment: MY_DATA unused
+SRC 00000000
+
+Symbol: SRC
+   Definitions
+      At line 37 in file q1_nv.asm
+   Uses
+      At line 15 in file q1_nv.asm
+      At line 16 in file q1_nv.asm
+
+3 symbols
+342 symbols in table

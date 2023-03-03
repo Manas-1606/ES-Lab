@@ -1,0 +1,155 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         
+    4 00000000         __Vectors
+    5 00000000 40001000        DCD              0x40001000  ; stack pointer val
+                                                            ue when stack is em
+                                                            pty
+    6 00000004 00000000        DCD              Reset_Handler ; reset vector
+    7 00000008         
+    8 00000008                 ALIGN
+    9 00000008                 AREA             mycode, CODE, READONLY
+   10 00000000                 ENTRY
+   11 00000000                 EXPORT           Reset_Handler
+   12 00000000         
+   13 00000000         Reset_Handler
+   14 00000000 4808            LDR              R0,=V1
+   15 00000002 4909            LDR              R1,=V2
+   16 00000004 4A09            LDR              R2,=ANS
+   17 00000006 6803            LDR              R3,[R0]
+   18 00000008 680C            LDR              R4,[R1]
+   19 0000000A         LOOP
+   20 0000000A 42A3            CMP              R3,R4
+   21 0000000C BFCC 1B1B       SUBGT            R3,R3,R4
+   22 00000010 1AE4            SUBLE            R4,R4,R3
+   23 00000012 42A3            CMP              R3,R4
+   24 00000014 D1F9            BNE              LOOP
+   25 00000016 6013            STR              R3,[R2]
+   26 00000018         
+   27 00000018         
+   28 00000018 E7FE    STOP    B                STOP
+   29 0000001A         
+   30 0000001A 00 00 000000B2 
+                       V1      DCD              178
+   31 00000020 000004DE 
+                       V2      DCD              1246
+   32 00000024 00000000 
+              00000000 
+              00000000         AREA             MY_DATA, DATA, READWRITE
+   33 00000000         
+   34 00000000 00000000 
+                       ANS     DCD              0
+   35 00000004         
+   36 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\q2.d -
+o.\q2.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\Inc\NX
+P\LPC17xx --predefine="__EVAL SETA 1" --list=.\q2.lst q2.asm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file q2.asm
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 4 in file q2.asm
+   Uses
+      At line 2 in file q2.asm
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+LOOP 0000000A
+
+Symbol: LOOP
+   Definitions
+      At line 19 in file q2.asm
+   Uses
+      At line 24 in file q2.asm
+Comment: LOOP used once
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 13 in file q2.asm
+   Uses
+      At line 6 in file q2.asm
+      At line 11 in file q2.asm
+
+STOP 00000018
+
+Symbol: STOP
+   Definitions
+      At line 28 in file q2.asm
+   Uses
+      At line 28 in file q2.asm
+Comment: STOP used once
+V1 0000001C
+
+Symbol: V1
+   Definitions
+      At line 30 in file q2.asm
+   Uses
+      At line 14 in file q2.asm
+Comment: V1 used once
+V2 00000020
+
+Symbol: V2
+   Definitions
+      At line 31 in file q2.asm
+   Uses
+      At line 15 in file q2.asm
+Comment: V2 used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 9 in file q2.asm
+   Uses
+      None
+Comment: mycode unused
+6 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ANS 00000000
+
+Symbol: ANS
+   Definitions
+      At line 34 in file q2.asm
+   Uses
+      At line 16 in file q2.asm
+Comment: ANS used once
+MY_DATA 00000000
+
+Symbol: MY_DATA
+   Definitions
+      At line 32 in file q2.asm
+   Uses
+      None
+Comment: MY_DATA unused
+2 symbols
+343 symbols in table
